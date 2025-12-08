@@ -4,13 +4,18 @@ import L from "leaflet";
 
 // Marker icon fix for React-Leaflet (important)
 delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl:
-    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+// L.Icon.Default.mergeOptions({
+//   iconRetinaUrl: "",
+
+//   shadowUrl: "https://cdn-icons-png.flaticon.com/128/11272/11272962.png",
+// });
+
+// Custom Marker Icon
+const graduationIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/128/11272/11272962.png", // OR local import
+  iconSize: [40, 40],
+  iconAnchor: [20, 40], // Bottom Center
+  popupAnchor: [0, -40], // popup exact at top of the icon
 });
 
 const position = [22.8, 86.18]; // 👉 yaha apni latitude & longitude daal do
@@ -28,11 +33,9 @@ export default function MapComponent() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; OpenStreetMap contributors"
         />
-        
-        <Marker position={position}>
-          <Popup>
-            🎓 Mrs. KMPM Vocational College
-          </Popup>
+
+        <Marker position={position} icon={graduationIcon}>
+          <Popup>🎓 Mrs. KMPM Vocational College</Popup>
         </Marker>
       </MapContainer>
     </div>
