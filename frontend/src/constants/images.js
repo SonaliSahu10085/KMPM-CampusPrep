@@ -12,6 +12,10 @@ export const images = {
     internshipOppor: `${CLOUDINARY_BASE_URL}/v1764434788/internship_jobOppr_ph5h7w.png`,
     aiMockInterview: `${CLOUDINARY_BASE_URL}/v1764434787/ai_mock_interview_krskvj.png`,
   },
+  icon: {
+    mail: `${CLOUDINARY_BASE_URL}/v1765116534/mail_icon_adumvj.png`,
+    location: `${CLOUDINARY_BASE_URL}/v1765116541/location_icon_nacxza.png`,
+  },
   light: {
     bgImage: `${CLOUDINARY_BASE_URL}/v1761397617/BG_Light_qgtgt5.png`,
     adminLogin: `${CLOUDINARY_BASE_URL}/v1761397617/admin_portal_light_tvpycn.png`,

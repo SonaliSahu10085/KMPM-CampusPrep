@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Auth, Home , Contributors, PolicyPage } from "./pages/index.js";
+import { Auth, Home , Contributors, PolicyPage, ContactUs } from "./pages/index.js";
 import "./index.css"
 import { images } from "./constants/images.js";
 import { useStore } from "./constants/store.js";
+import 'leaflet/dist/leaflet.css';
+
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
           <Route path="/admin/login" element={<Auth type="admin" />} />
           <Route path="/contributors" element={<Contributors />} />
           <Route path="/privacy_policy" element={<PolicyPage />} />
+          <Route path="/contact_us" element={<ContactUs />} />
+
 
         </Routes>
       </div>

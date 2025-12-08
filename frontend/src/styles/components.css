@@ -4,9 +4,10 @@
 }
 
 
-input::placeholder{
+input::placeholder, textarea::placeholder{
   color: #656565
 }
+
 
 .dark input::placeholder{
   @apply text-gray-300;
