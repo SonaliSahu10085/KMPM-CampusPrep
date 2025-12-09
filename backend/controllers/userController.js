@@ -1,18 +1,19 @@
-const Student = require("../models/studentModel");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// Student signup
-const studentSignUp = async (req, res) => {
+// User signup
+const userSignUp = async (req, res) => {
     try {
-        const { fullName, username, email, password } = req.body;
-        if (!fullName || !username || !email || !password) {
+        const { fullName, email, role, password } = req.body;
+
+        if (!fullName || !email || !password) {
             return res.status(400).json({ error: "All fields are required" });
         }
 
         // Check if user already exists
-        const existingStudent = await Student.findOne({ email });
-        if (existingStudent) {
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
             return res.status(400).json({ error: "User already exists" });
         }
 
@@ -20,22 +21,22 @@ const studentSignUp = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10); 
 
         // Create new user
-        const student = await Student.create({
+        const registerUser = await User.create({
             fullName,
-            username,
-            email,
+            email, 
+            role,
             password : hashedPassword,
         });
 
         // Send response
-        res.status(201).json({ message: "Student registered successfully", student });
+        res.status(201).json({ message: "User registered successfully", user: registerUser });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
-// Student login
-const studentLogin = async (req, res) => {
+// User login
+const userLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -47,48 +48,48 @@ const studentLogin = async (req, res) => {
             return res.status(400).json({ error: "Password is required" });
         }
 
-        const student = await Student.findOne({ email });
-        if (!student) {
+        const loginUser = await User.findOne({ email });
+        if (!loginUser) {
             return res.status(401).json({ error: "Invalid email" });
         }
 
         //bcrypt.compare() hashes the input password and compares it with the stored hash.
-        const isMatch = await bcrypt.compare(password, student.password);
+        const isMatch = await bcrypt.compare(password, loginUser.password);
         if (!isMatch){
              return res.status(400).json({ message: "Invalid credentials" });
         }
         
         // Create JWT token
-        const token = jwt.sign({ id: student._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+        const token = jwt.sign({ id: loginUser._id, role: loginUser.role }, process.env.JWT_SECRET, { expiresIn: "7d" });
     
-        res.status(200).json({ message: "Login successful", student, Token: token });
+        res.status(200).json({ message: "Login successful", user: loginUser, Token: token });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
 
-// Get student profile
-const getStudentProfile = async (req, res) => {
+// Get User profile
+const getUserProfile = async (req, res) => {
     try {
-        const student = req.student;
+        const user = req.user;
         
-        if (!student) {
+        if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
 
-        const studentDetails = await Student.findById(student.id);
-        res.status(200).json({message : "Profile fetched successfully", student : studentDetails });
+        const userDetails = await User.findById(user.id);
+        res.status(200).json({ message : "Profile fetched successfully", User : userDetails });
 
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
 
-// Update student profile
-const updateStudentProfile = async (req, res) => {
+// Update User profile
+const updateUserProfile = async (req, res) => {
     try {
-        const student = req.student;
-        if (!student) {
+        const user = req.user;
+        if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
 
@@ -96,13 +97,13 @@ const updateStudentProfile = async (req, res) => {
             return res.status(400).json({ error: "No data provided to update" });
         }
 
-        const updatedStudent = await Student.findByIdAndUpdate(student.id, req.body, { new: true });
-        res.status(200).json({message : "Profile updated successfully", student : updatedStudent });
+        const updatedprofile = await User.findByIdAndUpdate(user.id, req.body, { new: true });
+        console.log(updatedprofile);
+        res.status(200).json({message : "Profile updated successfully", User : updatedprofile });
         
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
 
-
-module.exports = { studentSignUp, studentLogin, getStudentProfile, updateStudentProfile };
+module.exports = { userSignUp, userLogin, getUserProfile, updateUserProfile };

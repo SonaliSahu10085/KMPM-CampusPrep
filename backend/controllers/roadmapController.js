@@ -42,12 +42,13 @@ const getRoadmapByYear = async (req, res) => {
 const createRoadmap = async (req, res) => {
     try {
         const { title, year, description, resources } = req.body;
+        const createdBy = req.user.id;
 
         if (!title || !year) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
-        const roadmap = await Roadmap.create({ title, year, description, resources });
+        const roadmap = await Roadmap.create({ title, year, description, resources, createdBy });
         res.status(201).json({ message: "Roadmap created successfully", roadmap });
     } catch (error) {
         res.status(400).json({ message: error.message });

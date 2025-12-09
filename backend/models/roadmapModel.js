@@ -22,7 +22,8 @@ const roadmapSchema = new mongoose.Schema(
     ],
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Admin", // who created this roadmap
+      ref: "User", // who created this roadmap
+      required: true,
     },
   },
   { timestamps: true }

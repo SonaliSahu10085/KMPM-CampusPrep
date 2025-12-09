@@ -14,7 +14,6 @@ const getAllResources = async (req, res) => {
     }
 };
 
-
 // Get resource by topic
 const getResourceByTopic = async (req, res) => {
     try {
@@ -22,8 +21,6 @@ const getResourceByTopic = async (req, res) => {
         if (!topic) {
             return res.status(400).json({ message: "Topic is required" });
         }
-
-        console.log(topic);
 
         const resources = await Resource.find({
             topic: { $regex: topic, $options: "i" }, // case-insensitive match
@@ -63,7 +60,7 @@ const createResource = async (req, res) => {
             topic,
             year,
             file,
-            addedBy: req.user ? req.user.id : null, // from auth middleware if available
+            addedBy: req.user.id // from auth middleware if available
         });
 
         await newResource.save();

@@ -1,17 +1,10 @@
 const mongoose = require('mongoose');
 
-const studentSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
         required: [true, 'Please provide your full name'],
         trim: true
-    },
-    username: {
-        type: String,
-        required: [true, 'Username is required'],
-        unique: true,
-        trim: true,
-        minlength: [3, 'Username must be at least 3 characters long']
     },
     email: {
         type: String,
@@ -24,6 +17,11 @@ const studentSchema = new mongoose.Schema({
             'Please fill a valid email address'
         ]
     },
+    role: {
+        type: String,
+        enum: ['student', 'admin'],
+        default: 'student'
+    },
     password: {
         type: String,
         required: [true, 'Password is required'],
@@ -31,6 +29,6 @@ const studentSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const Student = mongoose.model('Student', studentSchema);
+const User = mongoose.model('User', userSchema);
 
-module.exports = Student;
+module.exports = User;

@@ -8,8 +8,8 @@ router.get("/", authVerify, resourceController.getAllResources);
 router.get("/:topic", authVerify, resourceController.getResourceByTopic);
 
 // Only for admin
-router.post("/", resourceController.createResource);
-router.patch("/:id", resourceController.updateResource);
-router.delete("/:id", resourceController.deleteResource);
+router.post("/", authVerify, resourceController.createResource);
+router.patch("/:id", authVerify, resourceController.updateResource);
+router.delete("/:id", authVerify, resourceController.deleteResource);
 
 module.exports = router;
