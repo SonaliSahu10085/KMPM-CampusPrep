@@ -2,16 +2,27 @@ import { images } from "../constants/images";
 import { Menu, Close, Light, Dark } from "../constants/icons";
 import { useStore } from "../constants/store";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 
 function ThemeIcon() {
     const { setTheme, theme } = useStore();
     console.log(theme);
-    return (<label className="swap swap-rotate">
+
+    useEffect(() => {
+        if (theme === "dark") {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme])
+
+
+    return (<label className="swap swap-rotate" >
         {/* hidden input just for DaisyUI animation */}
         <input type="checkbox" onClick={() => setTheme(theme === "light" ? "dark" : "light")} />
 
-        <Dark className="swap-off fill-current text-4xl text-[#417A8F] bg-gray-100 rounded-full p-2 border border-gray-300" />
+        <Dark className="swap-off fill-current text-4xl text-[#417A8F] bg-white/10 rounded-full p-2 border border-gray-400 " />
 
         <Light className="swap-on fill-current text-4xl text-[#417A8F] bg-black/10 rounded-full p-2 border border-gray-600" />
 
@@ -32,7 +43,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className={`backdrop-blur-sm border border-transparent sticky top-0 ${theme === "light" ? "bg-white/10" : "bg-black/10"} mx-4 sm:mx-20 rounded-b-3xl`}>
+        <div className={`z-999 backdrop-blur-sm border border-transparent sticky top-0 ${theme === "light" ? "bg-white/20" : "bg-black/20"} mx-4 sm:mx-20 rounded-b-3xl`}>
             <nav className={`flex items-center justify-between sm:px-10 py-4 px-6 rounded-3xl shadow-md shadow-gray-500 mt-4`}>
                 <img src={images.default.logo} alt="logo" className="h-12" />
 

@@ -7,6 +7,11 @@ import { FaArrowRightLong as RightArrow } from "react-icons/fa6";
 import { IoMdPlay as Play } from "react-icons/io";
 
 import { BsToggleOff as ToggleOff, BsToggleOn as ToggleOn } from "react-icons/bs";
+
+import { LuMail as OutlinedMail } from "react-icons/lu";
+
+import { RiTelegramLine as OutlinedTelegram } from "react-icons/ri";
+
 import {
   FaUnlock as LockOpen,
   FaLock as LockClose,
@@ -38,5 +43,7 @@ export {
   Light,
   Dark,
   RightArrow,
-  Play
+  Play,
+  OutlinedMail,
+  OutlinedTelegram
 };

@@ -4,6 +4,42 @@
 }
 
 
-input::placeholder{
+input::placeholder, textarea::placeholder{
   color: #656565
+}
+
+
+.dark input::placeholder{
+  @apply text-gray-300;
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-right {
+  animation: slideFromRight 1s ease-out 0.4s normal;
+}
+
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50px);
+    opacity: 1;
+  }
+}
+
+.slide-left {
+  animation: slideFromLeft 1s ease-out 1s normal;
 }

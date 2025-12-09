@@ -1,10 +1,11 @@
-import { images } from "../constants/images.ts";
-import { Form } from "../components/index.ts";
+import { images } from "../constants/images.js";
+import { Form } from "../components/index.js";
 
-export default function Auth({ type }: { type: "admin" | "login" | "signup" }) {
+//{ type: "admin" | "login" | "signup" }
+export default function Auth({ type }) {
 
     return (<div className="grid grid-cols-12 sm:mx-20">
-        <div className="hidden sm:flex sm:col-span-7 items-center h-screen">
+        <div className="hidden sm:flex sm:col-span-7 items-center h-screen zoom-animation">
             <img src={type === "admin" ? images.light.adminLogin : images.default.heroSection}
                 alt="Admin Portal"
                 className="h-4/5" />

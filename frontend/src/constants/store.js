@@ -1,20 +1,6 @@
 import { create } from 'zustand'
 
-type Store = {
-  theme: string
-  setTheme: (newTheme: string) => void
-
-  isAuthenticatedUser: boolean
-  setIsAuthenticatedUser: (value: boolean) => void
-
-  loading: boolean
-  setLoading: (value: boolean) => void
-
-  isNavOpen: boolean
-  setNavOpen: (value: boolean) => void
-}
-
-export const useStore = create<Store>()((set) => ({
+export const useStore = create((set) => ({
   theme: "light",
   setTheme: (newTheme) => set({ theme: newTheme }),
 

@@ -10,55 +10,49 @@
 @import "tw-animate-css";
 
 
-/* 4️⃣ Custom Variants (if needed) */
-@custom-variant dark (&:is(.dark *));
 
+@theme {
+  --text-light: #656565;
+  --text-dark: #d0d0d0;
+}
 
-/* 5️⃣ Your custom CSS */
 body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color: #656565;
+  color: var(--text-light);
+  overflow-x: hidden;
 }
 
-.font-family-abril-fatface{
-  font-family: "Abril Fatface", serif;
-  letter-spacing: 1px;
-}
-
-.text-primary {
-  color: #417A8F
-}
-
-.text-secondary {
-  color: #3E6B7B
-}
-
-.text-secondary-50{
-  color: #81C1CD;
+.dark body {
+  @apply text-gray-400;
 }
 
 
-.text-secondary-75{
-  color: #84A4B0;
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
-.text-tertiary {
-  color: #FB452B
+.after\:animate-blink::after {
+  animation: blink 0.8s infinite;
 }
 
-.text-tertiary-75 {
-  color: #FB8573
+@keyframes zoomInOut {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
 }
 
-.text-gray-75 {
-  color: #7C7C7C
+.zoom-animation {
+  animation: zoomInOut 4s ease-in-out infinite;
 }
 
 
-
-/* Custom components */
-@import "./styles/components.css"
+@import "./styles/color.css";
+@import "./styles/components.css";

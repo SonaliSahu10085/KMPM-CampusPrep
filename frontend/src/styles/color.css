@@ -1,0 +1,111 @@
+.font-family-abril-fatface {
+  font-family: "Abril Fatface", serif;
+  letter-spacing: 1px;
+}
+
+
+/* Text  */
+.text-md {
+  font-size: 1rem;
+}
+
+/* .text-brand-gradient {
+  background-image: linear-gradient(to right, #3E6B7B, #71C4E1);
+  @apply bg-clip-text text-transparent animate-gradient-flow;
+} */
+
+
+.text-primary {
+  color: #417A8F
+}
+
+.text-primary-75 {
+  color: #227593
+}
+
+.text-secondary {
+  color: #3E6B7B
+}
+
+.text-secondary-75 {
+  color: #84A4B0;
+}
+
+.text-secondary-50 {
+  color: #81C1CD;
+}
+
+.text-tertiary {
+  @apply text-red-400;
+}
+
+.text-gray-75 {
+  color: #7C7C7C
+}
+
+
+/* Background  */
+.bg-gradient {
+  background-image: linear-gradient(to right, #3E6B7B, #71C4E1);
+}
+
+.bg-primary {
+  background-color: #417A8F
+}
+
+.bg-primary-75 {
+  background-color: #227593
+}
+
+.bg-secondary {
+  background-color: #3E6B7B
+}
+
+.bg-secondary-75 {
+  background-color: #84A4B0;
+}
+
+.bg-secondary-50 {
+  background-color: #81C1CD;
+}
+
+.bg-tertiary {
+  @apply bg-red-400;
+}
+
+.bg-gray-75 {
+  color: #7C7C7C
+}
+
+
+
+
+
+.footer-dark-shadow {
+  box-shadow: 4px -4px 4px rgba(255, 255, 255, 0.25), -4px 0px 4px rgba(255, 255, 255, 0.25);
+}
+
+.footer-light-shadow {
+  box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.25), -4px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.text-brand-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-[#3E6B7B] via-[#71C4E1] to-[#3E6B7B] bg-size-[300%];
+  animation: gradient-flow 4s ease infinite;
+}
