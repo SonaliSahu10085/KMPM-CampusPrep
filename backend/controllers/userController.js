@@ -98,7 +98,6 @@ const updateUserProfile = async (req, res) => {
         }
 
         const updatedprofile = await User.findByIdAndUpdate(user.id, req.body, { new: true });
-        console.log(updatedprofile);
         res.status(200).json({message : "Profile updated successfully", User : updatedprofile });
         
     } catch (error) {
