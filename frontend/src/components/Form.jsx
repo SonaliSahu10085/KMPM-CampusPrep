@@ -94,8 +94,8 @@ export default function Form({ type }) {
       toast.error("Failed to connect to server");
     } finally {
       setIsLoading(false);
-      console.log("token after", token);
-      console.log("user after ", user);
+      // console.log("token after", token);
+      // console.log("user after ", user);
     }
   };
 
