@@ -24,9 +24,14 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Password is required'],
+        default: null,
         minlength: [6, 'Password must be at least 6 characters long']
     },
+    googleId: {
+        type: String,
+        default: null
+    }
+
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

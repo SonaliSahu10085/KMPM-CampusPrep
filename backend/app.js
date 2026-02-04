@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const morgan = require("morgan");
+const passport = require("passport");
 
 // Importing Routers
 const authRouter = require("./routes/authRoutes");
@@ -21,11 +22,13 @@ const app = express();
 // middlewares
 app.use(
   cors({
-    origin: ["http://localhost:5173/", "https://kmpm-campusprep.vercel.app/"],
+    origin: ["http://localhost:5173", "https://kmpm-campusprep.vercel.app"],
     methods: ["GET", "POST", "DELETE", "PATCH", "PUT"],
     credentials: true,
   })
 );
+
+app.use(passport.initialize());
 app.use(express.json({ limit: "10mb" }));
 app.use(morgan("dev"));
 
