@@ -93,8 +93,6 @@ const loginWithGoogle = passport.authenticate('google', {
 });
 
 // Google OAuth callback
-
-//to-do don't sure this is correct or not 
 const googleCallback = (req, res, next) => {
   passport.authenticate('google', { session: false }, async (err, user) => {
     if (err || !user) {
