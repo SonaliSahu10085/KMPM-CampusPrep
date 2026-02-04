@@ -1,7 +1,8 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const { generateToken } = require("../utils");
+const passport = require("passport");
+require("../middlewares/google");
 
 // User/Admin signup
 const signup = async (req, res) => {
@@ -60,13 +61,15 @@ const login = async (req, res) => {
       return res.status(400).json({ error: "Email is required" });
     }
 
-    if (!password) {
-      return res.status(400).json({ error: "Password is required" });
-    }
-
     const loginUser = await User.findOne({ email });
     if (!loginUser) {
       return res.status(401).json({ error: "Invalid email" });
+    }
+
+    if (!loginUser.password) {
+      return res.status(400).json({
+        error: "This account is registered using Google. Please login with Google."
+      });
     }
 
     //bcrypt.compare() hashes the input password and compares it with the stored hash.
@@ -84,4 +87,25 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { signup, login };
+// Google OAuth login
+const loginWithGoogle = passport.authenticate('google', {
+  scope: ['profile', 'email'],
+});
+
+// Google OAuth callback
+
+//to-do don't sure this is correct or not 
+const googleCallback = (req, res, next) => {
+  passport.authenticate('google', { session: false }, async (err, user) => {
+    if (err || !user) {
+      return res.redirect('https://kmpm-campusprep.vercel.app/');
+    }
+
+    const token = await generateToken(user);
+
+    // redirect to frontend with token
+    res.redirect(`https://kmpm-campusprep.vercel.app/?token=${token}`);
+  })(req, res, next);
+};
+
+module.exports = { signup, login, loginWithGoogle, googleCallback };
