@@ -1,6 +1,5 @@
 import {
   Navbar,
-  Body,
   HeroSection,
   PrepPartner,
   PlaceJourney,
@@ -14,7 +13,6 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <PrepPartner />
-
       <ResourcesContainer />
       <PlaceJourney />
       <Footer />

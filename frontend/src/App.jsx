@@ -6,12 +6,16 @@ import {
   Contributors,
   PolicyPage,
   ContactUs,
+  JobBoard,
 } from "./pages/index.js";
 import "./index.css";
 import { images } from "./constants/images.js";
 import { useStore } from "./constants/store.js";
 import "leaflet/dist/leaflet.css";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
+import { RoadmapPage } from "./components/index.js";
+import ResourcesPage from "./pages/ResourcesPage.jsx";
+import { AIMockInterview } from "./pages/index.js";
 
 function App() {
   const { theme } = useStore();
@@ -42,6 +46,10 @@ function App() {
           <Route path="/privacy_policy" element={<PolicyPage />} />
           <Route path="/contact_us" element={<ContactUs />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/roadmaps" element={<RoadmapPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/ai-mock-interview" element={<AIMockInterview />} />
+          <Route path="/jobboard" element={<JobBoard />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -26,21 +26,21 @@ export function HeroSection() {
           <TypingEffect text="Start Doing|" />
         </h1>
 
-        <p className="text-gray-75 max-w-md my-2 leading-6">
+        <p className="max-w-md my-2 leading-6 text-lg">
           Get interview-ready with AI-powered practice and instant feedback.
           Master your skills and land your dream job with confidence.
         </p>
         <div className="flex mt-5">
           <button
             type="button"
-            className="flex items-center gap-2 font-medium px-10 py-2 rounded-sm shadow-sm bg-orange-500 text-white hover:bg-white hover:text-orange-500 transform transition-transform cursor-pointer"
+            className="flex items-center gap-2 font-medium px-10 py-2 rounded-sm shadow-sm bg-red-400 text-white hover:bg-white hover:text-red-400 transform transition-transform cursor-pointer"
           >
             <span className="font-medium">Try For Free</span>
           </button>
 
           <button
             type="button"
-            className="flex items-center gap-2 font-medium border border-orange-500 px-5 py-2 rounded-md ms-5 shadow-md hover:bg-white hover:text-black"
+            className="flex items-center text-slate gap-2 border border-red-400 px-5 py-2 rounded-md ms-5 shadow-md cursor-pointer hover:bg-red-400 hover:text-white"
           >
             <Play />
             <span className="">Watch Demo</span>

@@ -73,7 +73,7 @@ export default function PrepPartner() {
     ];
 
     return (
-        <section className="mx-4 sm:mx-20">
+        <section className="mx-4 sm:mx-20" id="about-us">
 
             <HeadPart h2={contents[0].h2} p={contents[0].p} maxWh2="max-w-xl mx-auto" />
             <BottomPart
