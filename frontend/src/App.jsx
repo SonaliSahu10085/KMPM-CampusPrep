@@ -9,6 +9,7 @@ import {
   JobBoard,
   Interview,
   FeedbackReport,
+  StudentProfile,
 } from "./pages/index.js";
 import "./index.css";
 import { images } from "./constants/images.js";
@@ -57,6 +58,7 @@ function App() {
             element={<FeedbackReport />}
           />
           <Route path="/jobboard" element={<JobBoard />} />
+          <Route path="/profile/sonali" element={<StudentProfile />} />
         </Routes>
       </div>
     </BrowserRouter>

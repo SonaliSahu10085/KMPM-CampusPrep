@@ -8,6 +8,7 @@ import JobBoard from "./JobBoard.jsx";
 import AIMockInterview from "./AIMockInterview.jsx";
 import Interview from "./Interview.jsx";
 import FeedbackReport from "./FeedbackReport.jsx";
+import StudentProfile from "./StudentProfile.jsx";
 
 
 export {
@@ -20,5 +21,6 @@ export {
   JobBoard,
   AIMockInterview,
   Interview,
-  FeedbackReport
+  FeedbackReport,
+  StudentProfile
 };
