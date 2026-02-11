@@ -6,6 +6,9 @@ import ContactUs from "./ContactUs.jsx";
 import AdminDashboard from "./AdminDashboard.jsx";
 import JobBoard from "./JobBoard.jsx";
 import AIMockInterview from "./AIMockInterview.jsx";
+import Interview from "./Interview.jsx";
+import FeedbackReport from "./FeedbackReport.jsx";
+
 
 export {
   Auth,
@@ -15,5 +18,7 @@ export {
   ContactUs,
   AdminDashboard,
   JobBoard,
-  AIMockInterview
+  AIMockInterview,
+  Interview,
+  FeedbackReport
 };

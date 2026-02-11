@@ -7,6 +7,8 @@ import {
   PolicyPage,
   ContactUs,
   JobBoard,
+  Interview,
+  FeedbackReport,
 } from "./pages/index.js";
 import "./index.css";
 import { images } from "./constants/images.js";
@@ -48,7 +50,12 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/roadmaps" element={<RoadmapPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/ai-mock-interview" element={<AIMockInterview />} />
+          <Route path="/ai-mock-interview/form" element={<AIMockInterview />} />
+          <Route path="/ai-mock-interview/sonali" element={<Interview />} />
+          <Route
+            path="/ai-mock-interview/feedback"
+            element={<FeedbackReport />}
+          />
           <Route path="/jobboard" element={<JobBoard />} />
         </Routes>
       </div>
