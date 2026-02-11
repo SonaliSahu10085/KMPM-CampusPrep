@@ -1,16 +1,21 @@
+import { Link } from "react-router-dom";
 import { images } from "../constants/images";
 import Animate from "./Animate";
 
-function Card({ h5, p, imgSrc }) {
+function Card({ h5, p, imgSrc, link }) {
   return (
     <Animate>
-      <div className="bg-[#F9F9F9] shadow-sm shadow-gray-300 hover:shadow-lg hover:shadow-gray-400 hover:scale-105 transform transition-transform rounded-lg cursor-pointer">
-        <img src={imgSrc} alt="image" className="" />
-        <div className="text-white p-6 bg-gradient rounded-t-4xl rounded-b-lg h-40 shadow-sm shadow-teal-200">
-          <h5 className="text-md leading-10 font-family-abril-fatface">{h5}</h5>
-          <p className="font-medium leading-6 tracking-wide">{p}</p>
+      <Link to={link}>
+        <div className="bg-[#F9F9F9] shadow-sm shadow-gray-300 hover:shadow-lg hover:shadow-gray-400 hover:scale-105 transform transition-transform rounded-lg cursor-pointer">
+          <img src={imgSrc} alt="image" className="" />
+          <div className="text-white p-6 bg-gradient rounded-t-4xl rounded-b-lg h-40 shadow-sm shadow-teal-200">
+            <h5 className="text-md leading-10 font-family-abril-fatface">
+              {h5}
+            </h5>
+            <p className="font-medium leading-6 tracking-wide">{p}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     </Animate>
   );
 }
@@ -21,21 +26,25 @@ export default function ResourcesContainer() {
       h5: "Year Wise Roadmaps",
       p: "Clear guidance for all three years of BCA with structured learning paths, resources, and practice materials tailored to each year.",
       imgSrc: images.default.roadmaps,
+      link: "/roadmaps",
     },
     {
-      h5: "Internship & Job Opportunites",
+      h5: "Internship & Job Opportunities",
       p: "Find the best opportunites here as per your skills.",
       imgSrc: images.default.internshipOppor,
+      link: "/jobboard",
     },
     {
       h5: "AI Mock Interview",
       p: "Practice with AI-powered mock interviews in English or Hinglish voice mode. Get comfortable and confident in your preferred language.",
       imgSrc: images.default.aiMockInterview,
+      link: "/ai-mock-interview",
     },
     {
       h5: "Complete Resources",
       p: "Access notes, links, practice materials, and a comprehensive resource section to support your learning journey.",
       imgSrc: images.default.resources,
+      link: "/resources",
     },
   ];
 
@@ -57,7 +66,13 @@ export default function ResourcesContainer() {
       {/* Resources  */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-10">
         {cards.map((card, idx) => (
-          <Card key={idx} h5={card.h5} p={card.p} imgSrc={card.imgSrc} />
+          <Card
+            key={idx}
+            h5={card.h5}
+            p={card.p}
+            imgSrc={card.imgSrc}
+            link={card.link}
+          />
         ))}
       </div>
     </section>

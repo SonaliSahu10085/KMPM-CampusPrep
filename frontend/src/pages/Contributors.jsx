@@ -14,7 +14,7 @@ export default function Contributors() {
                 <h1 className="text-brand-gradient text-4xl font-family-abril-fatface leading-12 mt-6">
                     Meet Our Contributors !
                 </h1>
-                <p className="my-3 leading-6 mb-6">
+                <p className="my-3 leading-6 mb-6 text-lg">
                     The talented team behind KMPM CampusPrep, dedicated to helping students
                     achieve their career goals.
                 </p>

@@ -52,12 +52,12 @@ export default function ContactUs() {
 
       <section className="mx-4 sm:mx-40 py-10">
         <Animate>
-          <h2 className="text-brand-gradient text-4xl font-family-abril-fatface leading-12 text-center">
+          <h2 className="text-brand-gradient text-4xl mb-3 font-family-abril-fatface leading-12 text-center">
             Get in Touch
           </h2>
 
           {/* Paragraph  */}
-          <p className="my-4 leading-6 text-center max-w-sm mx-auto">
+          <p className="mb-5 leading-6 text-center text-lg max-w-xl mx-auto">
             Have questions? We'd love to hear from you. Send us a message and
             we'll respond as soon as possible.
           </p>

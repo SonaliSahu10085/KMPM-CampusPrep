@@ -1,12 +1,11 @@
 const { VITE_CLOUDINARY_BASE_URL: CLOUDINARY_BASE_URL } = import.meta.env;
-
 export const images = {
   default: {
     heroSection: `${CLOUDINARY_BASE_URL}/v1761397617/hero_section_ddbswz.png`,
     logo: `${CLOUDINARY_BASE_URL}/v1761397617/logo_ya3duz.png`,
     ajay: `${CLOUDINARY_BASE_URL}/v1764227045/ajay_xllons.png`,
     sonali: `${CLOUDINARY_BASE_URL}/v1764227044/sonali_r436dw.png`,
-    appqrcode: `${CLOUDINARY_BASE_URL}/v1763033827/qrcode_dzn7h0.png`,
+    appqrcode: `${CLOUDINARY_BASE_URL}/v1770122617/URL_QR_Code_jkbfg5.png`,
     roadmaps: `${CLOUDINARY_BASE_URL}/v1764434788/roadmaps_auiia4.png`,
     resources: `${CLOUDINARY_BASE_URL}/v1764434788/resources_p32tfz.png`,
     internshipOppor: `${CLOUDINARY_BASE_URL}/v1764434788/internship_jobOppr_ph5h7w.png`,
